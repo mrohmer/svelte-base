@@ -1,6 +1,12 @@
 {
   "name": "@rohmer/svelte-base",
   "version": "0.0.1",
+  "author": {
+    "email": "m@rohmer.rocks",
+    "name": "Matthias Rohmer",
+    "url": "https://matthias.rohmer.rocks"
+  },
+  "repository": "https://github.com/mrohmer/svelte-base",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

@@ -1,0 +1,20 @@
+name: Node.js Package
+on:
+  release:
+    types: [created]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            always-auth: true
+        - uses: bahmutov/npm-install@v1
+        - name: build lib
+          run: yarn package
+        - name: publish
+          run: yarn publish --new-version ${GITHUB_REF/refs\/tags\//} --no-git-tag-version
+          working-directory: ./package
+          env:
+            NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
